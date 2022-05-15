@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <h1> Angular Form Array Example</h1>
+  <form class="form" [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="container">
+      <button class="btn btn-primary" (click)="addRow()" [disabled]="!this.form.get('skills').valid">ADD</button>
+      <div formArrayName="skills">
+        <div *ngFor="let skill of skills.controls;let i=index" >
+          <div [formGroupName]="i" class="row">
+            <input class="form-control form-control-sm col-md-3 m-3" type="text" formControlName="name" />
+            <input class="form-control form-control-sm col-md-3 m-3" type="text" formControlName="exp" />
+            <button class="btn btn-danger col-md-2 m-3" *ngIf="i>0" (click)="removeRow(i)" >REMOVE</button>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!this.form.valid">Submit</button>
+    </div>
+  </form>
+  <br/>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Exp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let skill of skillSet">
+          <tr>
+            <th>{{skill.name}}</th>
+            <th>{{skill.exp}}</th>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
