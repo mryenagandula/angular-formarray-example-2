@@ -1,37 +1,38 @@
-<div class="container-fluid">
-  <h1> Angular Form Array Example</h1>
-  <form class="form" [formGroup]="form" (ngSubmit)="submitForm()">
-    <div class="container">
-      <button class="btn btn-primary" (click)="addRow()" [disabled]="!this.form.get('skills').valid">ADD</button>
-      <div formArrayName="skills">
-        <div *ngFor="let skill of skills.controls;let i=index" >
-          <div [formGroupName]="i" class="row">
-            <input class="form-control form-control-sm col-md-3 m-3" type="text" formControlName="name" />
-            <input class="form-control form-control-sm col-md-3 m-3" type="text" formControlName="exp" />
-            <button class="btn btn-danger col-md-2 m-3" *ngIf="i>0" (click)="removeRow(i)" >REMOVE</button>
-          </div>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!this.form.valid">Submit</button>
-    </div>
-  </form>
-  <br/>
-  <div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Skill</th>
-          <th>Exp</th>
-        </tr>
-      </thead>
-      <tbody>
-        <ng-container *ngFor="let skill of skillSet">
-          <tr>
-            <th>{{skill.name}}</th>
-            <th>{{skill.exp}}</th>
-          </tr>
+<div class="container">
+  <h3 class="mt-4"> Angular Form Array Example</h3>
+  <div class="shadow mt-4">
+    <form class="form" [formGroup]="form" (ngSubmit)="submitForm()">
+      <div class="p-4">
+        <ng-container formArrayName="skills">
+          <ng-container *ngFor="let skill of skills.controls;let i=index">
+            <div [formGroupName]="i" class="row">
+              <input class="form-control col-md-3 m-1" type="text" formControlName="name" placeholder="Enter Skill"/>
+              <input class="form-control col-md-3 m-1" type="text" formControlName="exp"  placeholder="Enter Experience"/>
+              <button class="btn btn-primary m-1" (click)="addRow()" [disabled]="!this.form.get('skills').valid"> + </button>
+              <button class="btn btn-danger m-1" *ngIf="i>0" (click)="removeRow(i)">X</button>
+            </div>
+          </ng-container>
         </ng-container>
-      </tbody>
-    </table>
+      </div>
+      <button type="submit" class="btn btn-primary m-3" [disabled]="!this.form.valid">Submit</button>
+    </form>
+    <div class="p-4">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Exp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let skill of skillSet">
+            <tr>
+              <th>{{skill.name}}</th>
+              <th>{{skill.exp}}</th>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

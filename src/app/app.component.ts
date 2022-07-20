@@ -46,6 +46,6 @@ export class AppComponent {
   }
 
   public submitForm(){
-    this.skillSet = this.skills.getRawValue()
+    this.skillSet = this.skills.getRawValue();
   }
 }
