@@ -11,10 +11,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ### Steps: 
 
 - Create angular project with below command.
-	"ng new angular-formarray-example"
+	"ng new angular-formarray-example-2"
 
 - After successfully creation of angular app, change file directory to project-name.
-	"cd angular-formarray-example"
+	"cd angular-formarray-example-2"
 
 - Open project in vs code using "code ."
 

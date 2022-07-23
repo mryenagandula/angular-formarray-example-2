@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('angular-formarray-example app is running!');
+    expect(page.getTitleText()).toEqual('angular-formarray-example-2 app is running!');
   });
 
   afterEach(async () => {

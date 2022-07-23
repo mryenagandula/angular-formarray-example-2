@@ -7,7 +7,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public title = 'angular-formarray-example';
+  public title = 'angular-formarray-example-2';
 
   public form:FormGroup;
 
